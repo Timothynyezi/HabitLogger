@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿class HabitEntry
+{
+    public int ID { get; set; }
+    public string Date { get; set; }
+    public int Quantity { get; set;}
+}
