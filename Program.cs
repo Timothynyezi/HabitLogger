@@ -48,5 +48,18 @@ while (isRunning)
 
     }
 
-    
+    void ShowWelcome()
+    {
+    Console.Clear();
+    Console.WriteLine("╔══════════════════════════════╗");
+    Console.WriteLine("║     WELCOME TO               ║");
+    Console.WriteLine("║      HABIT LOGGER            ║");
+    Console.WriteLine("╠══════════════════════════════╣");
+    Console.WriteLine("║  Track your daily water      ║");
+    Console.WriteLine("║  intake. Data is stored in   ║");
+    Console.WriteLine("║  a real SQLite database.     ║");
+    Console.WriteLine("╚══════════════════════════════╝");
+    Console.WriteLine("\n  Press any key to start...");
+    Console.ReadKey();   
+    }
 }
