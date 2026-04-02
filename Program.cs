@@ -62,4 +62,16 @@ while (isRunning)
     Console.WriteLine("\n  Press any key to start...");
     Console.ReadKey();   
     }
+
+    void ShowGoodby()
+    {
+    Console.Clear();
+    Console.WriteLine("╔══════════════════════════════╗");
+    Console.WriteLine("║          GOODBYE!            ║");
+    Console.WriteLine("╠══════════════════════════════╣");
+    Console.WriteLine("║  Your data is safely stored  ║");
+    Console.WriteLine("║  in habitlogger.db           ║");
+    Console.WriteLine("╚══════════════════════════════╝");
+    Thread.Sleep(2000); 
+    }
 }
