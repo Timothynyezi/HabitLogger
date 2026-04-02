@@ -1,7 +1,8 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
+﻿
 DatabaseManager db = new DatabaseManager();
 
+// Runs on every startup — creates the database and table
+// if they don't already exist. Safe to call every time.
 db.InitialiseDatabase();
 
 bool isRunning = true;
@@ -21,7 +22,7 @@ while (isRunning)
     Console.WriteLine("║  4.  Delete an Entry         ║");
     Console.WriteLine("║  0.  Exit                    ║");
     Console.WriteLine("╚══════════════════════════════╝");
-    Console.Write("\n  Choose an option: "); 
+    Console.Write("\n  Choose an option: ");
 
     string choice = Console.ReadLine()?.Trim();
 
@@ -41,15 +42,20 @@ while (isRunning)
             break;
         case "0":
             isRunning = false;
-            ShowGoodby();
+            ShowGoodbye();
             break;
         default:
-        Console.WriteLine("\n Invalid option. Please choose 0 -4.");
-
+            Console.WriteLine("\n  ⚠️  Invalid option. Please choose 0 - 4.");
+            Thread.Sleep(1500);
+            break;
     }
+}
 
-    void ShowWelcome()
-    {
+// ============================================================
+// WELCOME SCREEN
+// ============================================================
+void ShowWelcome()
+{
     Console.Clear();
     Console.WriteLine("╔══════════════════════════════╗");
     Console.WriteLine("║     WELCOME TO               ║");
@@ -60,11 +66,14 @@ while (isRunning)
     Console.WriteLine("║  a real SQLite database.     ║");
     Console.WriteLine("╚══════════════════════════════╝");
     Console.WriteLine("\n  Press any key to start...");
-    Console.ReadKey();   
-    }
+    Console.ReadKey();
+}
 
-    void ShowGoodby()
-    {
+// ============================================================
+// GOODBYE SCREEN
+// ============================================================
+void ShowGoodbye()
+{
     Console.Clear();
     Console.WriteLine("╔══════════════════════════════╗");
     Console.WriteLine("║          GOODBYE!            ║");
@@ -72,19 +81,36 @@ while (isRunning)
     Console.WriteLine("║  Your data is safely stored  ║");
     Console.WriteLine("║  in habitlogger.db           ║");
     Console.WriteLine("╚══════════════════════════════╝");
-    Thread.Sleep(2000); 
-    }
+    Thread.Sleep(2000);
+}
 
-    void LogEntry(DatabaseManager database)
-    {
-        Console.Clear();
-        Console.WriteLine( " Log Entry - coming in step 3");
-        Console.ReadKey();
-    }
-    void UpdateEntry(DatabaseManager database)
-    {
-        Console.Clear();
-        Console.WriteLine(" Update Entry - coming in step 4");
-        Console.ReadKey();
-    }
+// ============================================================
+// PLACEHOLDER METHODS — filled in Steps 3 and 4
+// ============================================================
+void LogEntry(DatabaseManager database)
+{
+    Console.Clear();
+    Console.WriteLine("  Log Entry — coming in Step 3");
+    Console.ReadKey();
+}
+
+void ViewEntries(DatabaseManager database)
+{
+    Console.Clear();
+    Console.WriteLine("  View Entries — coming in Step 3");
+    Console.ReadKey();
+}
+
+void UpdateEntry(DatabaseManager database)
+{
+    Console.Clear();
+    Console.WriteLine("  Update Entry — coming in Step 4");
+    Console.ReadKey();
+}
+
+void DeleteEntry(DatabaseManager database)
+{
+    Console.Clear();
+    Console.WriteLine("  Delete Entry — coming in Step 4");
+    Console.ReadKey();
 }
