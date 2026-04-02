@@ -74,4 +74,17 @@ while (isRunning)
     Console.WriteLine("╚══════════════════════════════╝");
     Thread.Sleep(2000); 
     }
+
+    void LogEntry(DatabaseManager database)
+    {
+        Console.Clear();
+        Console.WriteLine( " Log Entry - coming in step 3");
+        Console.ReadKey();
+    }
+    void UpdateEntry(DatabaseManager database)
+    {
+        Console.Clear();
+        Console.WriteLine(" Update Entry - coming in step 4");
+        Console.ReadKey();
+    }
 }
