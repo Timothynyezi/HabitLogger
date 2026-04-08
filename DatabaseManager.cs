@@ -57,5 +57,28 @@ class DatabaseManager
             }
         }
     }
+    /* SELECT ALL - READS every row from WaterIntake
+     // Returns a List<HabitEntry> — a list of C# objects.
+    // DatabaseManager reads the data, maps each row into a
+    // HabitEntry object, and returns the list.
+    // It never prints anything — that's UserInterface's job.
+    */
 
+    public List<HabitEntry> GetAllEntries()
+    {
+        // Start with an empty list - to be filled as we record
+        List<HabitEntry> entries = new List<HabitEntry>();
+
+        using (SqliteConnection connection = new SqliteConnection(ConnectionString))
+        {
+            connection.Open();
+
+            string selectSql = "SELECT * FROM WaterIntake ORDER BY Id";
+
+            using (SqliteCommand command = new SqliteCommand(selectSql, connection))
+            {
+                
+            }   
+        }
+    }
 }
