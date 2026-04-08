@@ -1,4 +1,5 @@
 
+using System.Data;
 using Microsoft.Data.Sqlite;
 
 class DatabaseManager
@@ -44,9 +45,14 @@ class DatabaseManager
             string insertSql = @"
                 INSERT INTO WaterIntake (Date, Quantity)
                 VALUES (@date, @quantity)";
-            using (SqliteCommand = new SqliteCommand(insertSql, connection))
+            using (SqliteCommand command = new SqliteCommand(insertSql, connection))
             {
-                // Bind the actual 
+                // Bind the actual values to the placeholders.
+                //SQLite handles the escaping - no injection possible.
+                 command.Parameters.AddWithValue("@date", date);
+                 command.Parameters.AddWithValue(@"quantity", quantity);
+
+                 
             }
         }
     }
