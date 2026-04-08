@@ -52,7 +52,8 @@ class DatabaseManager
                  command.Parameters.AddWithValue("@date", date);
                  command.Parameters.AddWithValue(@"quantity", quantity);
 
-                 
+                 // ExecuteNonQuery for INSERT - no rows returned
+                 command.ExecuteNonQuery();
             }
         }
     }
