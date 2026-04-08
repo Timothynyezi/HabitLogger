@@ -35,7 +35,20 @@ class DatabaseManager
                 command.ExecuteNonQuery();
             }
         }
+    }public void InsertEntry(string date, int quantity)
+    {
+        using(SqliteConnection connection = new SqliteConnection(connection))
+        {
+            connection.Open();
 
-        Console.WriteLine("  Database initialised successfully.");
+            string insertSql = @"
+                INSERT INTO WaterIntake (Date, Quantity)
+                VALUES (@date, @quantity)";
+            using (SqliteCommand = new SqliteCommand(insertSql, connection))
+            {
+                // Bind the actual 
+            }
+        }
     }
+
 }
