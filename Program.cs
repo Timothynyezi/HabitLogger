@@ -1,4 +1,6 @@
 ﻿
+using System.Reflection.Metadata;
+
 DatabaseManager db = new DatabaseManager();
 
 // Runs on every startup — creates the database and table
@@ -90,14 +92,35 @@ void ShowGoodbye()
 void LogEntry(DatabaseManager database)
 {
     Console.Clear();
-    Console.WriteLine("  Log Entry — coming in Step 3");
+    Console.WriteLine("╔══════════════════════════════╗");
+    Console.WriteLine("║       LOG WATER INTAKE       ║");
+    Console.WriteLine("╚══════════════════════════════╝");
+
+    UserInterface ui = new UserInterface();
+
+    string date     = ui.GetDate();
+    int quantity    = ui.GetQuantity();
+
+    // Pass the clean values to DatabaseManager to save
+    database.InsertEntry(date, quantity);
+
+    Console.WriteLine("\n   Entry saved successfully!");
+    Console.WriteLine("\n  Press any key to return...");
     Console.ReadKey();
+
+
 }
 
 void ViewEntries(DatabaseManager database)
 {
-    Console.Clear();
-    Console.WriteLine("  View Entries — coming in Step 3");
+    // Ask DatabaseManager for the data
+    List<HabitEntry> entries = database.GetAllEntries();
+
+    // Pass the data to UserInterface to display
+    UserInterface ui = new UserInterface();
+    ui.DisplayEntries(entries);
+
+    Console.WriteLine("\n  Press any key to return...");
     Console.ReadKey();
 }
 
